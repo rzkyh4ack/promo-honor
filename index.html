@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honor Smartphone - Promosi Spesial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, #1a237e, #283593);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo i {
+            color: #ff6b00;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            color: #ff6b00;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: #1a237e;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, #ff6b00, #ff8c00);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            box-shadow: 0 6px 15px rgba(255, 107, 0, 0.3);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 0, 0.4);
+        }
+
+        /* Animasi Karakter Lucu */
+        .fun-animation {
+            position: relative;
+            height: 300px;
+            margin: 40px auto;
+            max-width: 900px;
+        }
+
+        .phone-img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            z-index: 10;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .character {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            z-index: 5;
+        }
+
+        .char1 {
+            top: 20%;
+            left: 15%;
+            animation: bounce 4s infinite ease-in-out;
+        }
+
+        .char2 {
+            top: 10%;
+            right: 15%;
+            animation: bounce 3.5s infinite ease-in-out 0.5s;
+        }
+
+        .char3 {
+            bottom: 20%;
+            left: 10%;
+            animation: bounce 4.5s infinite ease-in-out 1s;
+        }
+
+        .char4 {
+            bottom: 10%;
+            right: 20%;
+            animation: bounce 3.8s infinite ease-in-out 1.5s;
+        }
+
+        /* Animasi Keyframes */
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+            50% { transform: translate(-50%, -50%) translateY(-15px); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #1a237e;
+            font-size: 2.5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: #ff6b00;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: #1a237e;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background-color: #f5f7fa;
+        }
+
+        .product-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scrollbar-width: thin;
+            scrollbar-color: #ff6b00 #f0f0f0;
+        }
+
+        .product-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .product-slider::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+
+        .product-slider::-webkit-scrollbar-thumb {
+            background: #ff6b00;
+            border-radius: 10px;
+        }
+
+        .product-card {
+            min-width: 280px;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-img {
+            height: 220px;
+            background-color: #e8eaf6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product-img img {
+            max-width: 100%;
+            max-height: 180px;
+            object-fit: contain;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: #1a237e;
+        }
+
+        .product-price {
+            color: #ff6b00;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .whatsapp-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .whatsapp-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            transform: translateY(30px);
+            transition: transform 0.5s ease;
+        }
+
+        .whatsapp-modal.active .whatsapp-content {
+            transform: translateY(0);
+        }
+
+        .whatsapp-content i {
+            font-size: 4rem;
+            color: #25D366;
+            margin-bottom: 20px;
+        }
+
+        .whatsapp-content h3 {
+            margin-bottom: 15px;
+            color: #1a237e;
+        }
+
+        .whatsapp-content p {
+            margin-bottom: 25px;
+            color: #666;
+        }
+
+        .whatsapp-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #25D366;
+            margin: 15px 0;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .modal-btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .btn-close {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #1a237e, #283593);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .footer-column p, .footer-column a {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+        .footer-column a:hover {
+            color: #ff6b00;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: #ff6b00;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #1a237e;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .fun-animation {
+                height: 250px;
+            }
+            
+            .phone-img {
+                width: 250px;
+            }
+            
+            .character {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0 40px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .modal-buttons {
+                flex-direction: column;
+            }
+            
+            .fun-animation {
+                height: 200px;
+            }
+            
+            .phone-img {
+                width: 200px;
+            }
+            
+            .character {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Honor Indonesia</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#features">Fitur</a></li>
+                    <li><a href="#products">Produk</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Honor Smartphone Terbaru <br> Performa Luar Biasa</h1>
+            <p>Dapatkan smartphone Honor dengan teknologi terkini, kamera canggih, dan baterai tahan lama. Promosi spesial untuk pembelian hari ini!</p>
+            <a href="#products" class="cta-button">Lihat Produk</a>
+            
+            <!-- Animasi Lucu dengan Smartphone -->
+            <div class="fun-animation">
+                <img src="https://cdn-icons-png.flaticon.com/512/2972/2972425.png" alt="Honor Smartphone" class="phone-img">
+                <div class="character char1">🤖</div>
+                <div class="character char2">🚀</div>
+                <div class="character char3">📱</div>
+                <div class="character char4">⭐</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Fitur Unggulan</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-camera"></i>
+                    <h3>Kamera Canggih</h3>
+                    <p>Kamera resolusi tinggi dengan teknologi AI untuk hasil foto yang lebih tajam dan natural.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast Charging</h3>
+                    <p>Teknologi pengisian cepat yang membuat baterai penuh hanya dalam waktu singkat.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Prosesor Kuat</h3>
+                    <p>Ditenagai prosesor terbaru untuk performa gaming dan multitasking tanpa hambatan.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-expand-alt"></i>
+                    <h3>Layar Lebar</h3>
+                    <p>Layar AMOLED dengan refresh rate tinggi untuk pengalaman visual yang memukau.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Produk Unggulan</h2>
+            <div class="product-slider">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/323/323319.png" alt="Honor 90">
+                    </div>
+                    <div class="product-info">
+                        <h3>Honor 90</h3>
+                        <p>Smartphone dengan kamera 200MP, baterai 5000mAh, dan layar AMOLED 120Hz.</p>
+                        <div class="product-price">Rp 4.999.000</div>
+                        <button class="cta-button product-btn" data-product="Honor 90">Beli Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/323/323319.png" alt="Honor X9a">
+                    </div>
+                    <div class="product-info">
+                        <h3>Honor X9a</h3>
+                        <p>Layar OLED melengkung, chipset Snapdragon 695, dan kamera utama 64MP.</p>
+                        <div class="product-price">Rp 3.799.000</div>
+                        <button class="cta-button product-btn" data-product="Honor X9a">Beli Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/323/323319.png" alt="Honor Magic5 Pro">
+                    </div>
+                    <div class="product-info">
+                        <h3>Honor Magic5 Pro</h3>
+                        <p>Flagship dengan kamera triple 50MP, prosesor Snapdragon 8 Gen 2, dan layar LTPO.</p>
+                        <div class="product-price">Rp 12.999.000</div>
+                        <button class="cta-button product-btn" data-product="Honor Magic5 Pro">Beli Sekarang</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/323/323319.png" alt="Honor 70">
+                    </div>
+                    <div class="product-info">
+                        <h3>Honor 70</h3>
+                        <p>Kamera Sony IMX800, layar OLED 120Hz, dan desain tipis hanya 7.9mm.</p>
+                        <div class="product-price">Rp 5.499.000</div>
+                        <button class="cta-button product-btn" data-product="Honor 70">Beli Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Modal -->
+    <div class="whatsapp-modal" id="whatsappModal">
+        <div class="whatsapp-content">
+            <i class="fab fa-whatsapp"></i>
+            <h3>Hubungi Kami via WhatsApp</h3>
+            <p>Klik tombol di bawah untuk langsung terhubung dengan kami via WhatsApp dan dapatkan penawaran spesial!</p>
+            <div class="whatsapp-number">0895-0790-6660</div>
+            <div class="modal-buttons">
+                <button class="modal-btn btn-whatsapp" id="openWhatsApp">Buka WhatsApp</button>
+                <button class="modal-btn btn-close" id="closeModal">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a class="whatsapp-float" id="whatsappFloat">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Honor Indonesia</h3>
+                    <p>Menghadirkan smartphone berkualitas tinggi dengan teknologi terkini untuk pengalaman terbaik pengguna.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-phone"></i> 0895-0790-6660</p>
+                    <p><i class="fas fa-envelope"></i> info@honor-indonesia.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Link Cepat</h3>
+                    <p><a href="#home">Beranda</a></p>
+                    <p><a href="#features">Fitur</a></p>
+                    <p><a href="#products">Produk</a></p>
+                    <p><a href="#contact">Kontak</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Honor Indonesia. Semua hak dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // WhatsApp Modal
+        const whatsappFloat = document.getElementById('whatsappFloat');
+        const whatsappModal = document.getElementById('whatsappModal');
+        const openWhatsApp = document.getElementById('openWhatsApp');
+        const closeModal = document.getElementById('closeModal');
+        const productButtons = document.querySelectorAll('.product-btn');
+        
+        // Open modal when clicking on WhatsApp float button
+        whatsappFloat.addEventListener('click', () => {
+            whatsappModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Open modal when clicking on product buttons
+        productButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productName = button.getAttribute('data-product');
+                document.querySelector('.whatsapp-content h3').innerHTML = `Beli ${productName} via WhatsApp`;
+                whatsappModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            whatsappModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Open WhatsApp with pre-filled message
+        openWhatsApp.addEventListener('click', () => {
+            const productText = document.querySelector('.whatsapp-content h3').innerHTML;
+            const message = `Halo, saya tertarik dengan produk ${productText.replace('Beli ', '').replace(' via WhatsApp', '')}. Bisa info lebih lanjut?`;
+            const phoneNumber = '089507906660';
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        });
+        
+        // Close modal when clicking outside the content
+        whatsappModal.addEventListener('click', (e) => {
+            if (e.target === whatsappModal) {
+                whatsappModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add animation to feature cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+        
+        // Add floating animation to characters
+        const characters = document.querySelectorAll('.character');
+        characters.forEach((char, index) => {
+            // Randomize animation duration and delay
+            const duration = 3 + Math.random() * 2;
+            const delay = index * 0.5;
+            
+            char.style.animation = `bounce ${duration}s infinite ease-in-out ${delay}s`;
+        });
+    </script>
+</body>
+</html>
